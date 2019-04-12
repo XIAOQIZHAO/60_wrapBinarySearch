@@ -33,17 +33,17 @@ return -2;
 return pageToCheck;
 ```
 Solution to recursive cases
-	recursive abstraction 
+	- recursive abstraction 
 	```
 	pageToCheck -1
 	pageToCheck +1
 	```
-	leftover processing
+	- leftover processing
 	```
 	low
 	hi
 	```
-	combine
+	- combine
 	```
 	indexOf_recursive( findMe
                           , low
