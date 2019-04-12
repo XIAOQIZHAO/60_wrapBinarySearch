@@ -31,6 +31,9 @@ public class UserOfBinarySearch {
               + " was found at index " + foundAt
               + ". That's correct, eh? " + (foundAt == i)
               );
+	    int[] costList = {3,2,3,4,1,3,4,2,3,4,};
+	    System.out.println("cost: " + orderedList.cost()
+			       + "...expecting " + costList[i]);
         }
         System.out.println();
 
@@ -38,9 +41,13 @@ public class UserOfBinarySearch {
         System.out.println( "search for MISSING values");
         findOne( "not in middle"
                , orderedList.get( orderedList.size() /2) +1);
+	System.out.println("cost: " + orderedList.cost() + "...expecting 4");
         findOne( "before first ", orderedList.get(0) -5);
+	System.out.println("cost: " + orderedList.cost() + "...expecting 3");
         findOne( "after last   "
                , orderedList.get( orderedList.size() -1) +5);
+	
+	System.out.println("cost: " + orderedList.cost() + "...expecting 4");
         System.out.println();
     }
 

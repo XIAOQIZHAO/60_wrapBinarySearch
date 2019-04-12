@@ -10,7 +10,14 @@ public class OrderedList_inArraySlots
     implements OrderedList {
 
     private java.util.ArrayList<Integer> list_iAS;
+    private int costCounter;
 
+    /**
+       @return the number of iterations or comparisons from the most recent invocation of indexOf
+     */
+    public int cost() {
+	return costCounter;
+    }
 
     /**
       @return the index of any occurrence of
@@ -30,11 +37,13 @@ public class OrderedList_inArraySlots
     private int indexOf_whileStyle( Integer findMe) {
         int low = 0;
         int hi  = list_iAS.size() -1;  // inclusive
-
+	costCounter = 0;
+	
         while( low <= hi){
             int pageToCheck = (low + hi) / 2;
             int comparison =
               findMe.compareTo( list_iAS.get( pageToCheck));
+	    costCounter++;
             if( comparison == 0) return pageToCheck;
             else
                 if( comparison < 0)
@@ -65,7 +74,7 @@ public class OrderedList_inArraySlots
             int pageToCheck = (low + hi) / 2;
             int comparison =
               findMe.compareTo( list_iAS.get( pageToCheck));
-
+	    costCounter++;
 
             if( comparison == 0)    // detect base case
                 return pageToCheck; // solution other base case
