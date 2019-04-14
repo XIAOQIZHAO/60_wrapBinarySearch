@@ -8,8 +8,11 @@ OrderedList_inArraySlots.java
 based on [solutionsHolmes/5D_genericTypes/OrderedList_inArraySlots_v2/](https://github.com/stuyvesant-cs/solutionsHolmes/tree/master/5D_genericTypes/OrderedList_inArraySlots_v2)
 as of 2019-04-10 04:48
 
-What is meant by y = log2x ?
-y is the exponent to which 2 must be raised to yield x. 2^y = x
+What is meant by count = log2x ?
+count is the exponent to which 2 must be raised to yield x. 2^count = x
+      the number of times you have to double 1 to get n: 1*2*2*... with count 2's
+      the number of times you have to halve n to get 1
+
 
 What does its graph look like?
 The graph is a curve starting from negative infinity of y close to y axis, increasing fast at first, then slower, as x increase. It's the reflection of the exponential equation y = 2^x about y = x, with: 

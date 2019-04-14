@@ -16,7 +16,9 @@ public class OrderedList_inArraySlots
        @return the number of iterations or comparisons from the most recent invocation of indexOf
      */
     public int cost() {
-	return costCounter;
+	int cost = costCounter;
+	costCounter = 0;
+	return cost;
     }
 
     /**
@@ -27,7 +29,7 @@ public class OrderedList_inArraySlots
     public int indexOf( Integer findMe) {
         return indexOf_whileStyle( findMe);
         // return indexOf_recursive(
-            // findMe, 0, list_iAS.size() -1);
+        //     findMe, 0, list_iAS.size() -1);
     }
 
 
@@ -37,7 +39,7 @@ public class OrderedList_inArraySlots
     private int indexOf_whileStyle( Integer findMe) {
         int low = 0;
         int hi  = list_iAS.size() -1;  // inclusive
-	costCounter = 0;
+	// costCounter = 0; //has to be here, re-initialize every time you call the method, bc there's only 1 object in the user
 	
         while( low <= hi){
             int pageToCheck = (low + hi) / 2;
@@ -67,8 +69,9 @@ public class OrderedList_inArraySlots
                                  ) {
         // System.out.println( "debug low: " + low
                           // + "   hi: " + hi);
-        if( low > hi)  // detect base case
+        if( low > hi){  // detect base case
             return -2;   // solution to base case
+	}
               // value differs from while-style method, just FYI
         else{
             int pageToCheck = (low + hi) / 2;
@@ -76,9 +79,10 @@ public class OrderedList_inArraySlots
               findMe.compareTo( list_iAS.get( pageToCheck));
 	    costCounter++;
 
-            if( comparison == 0)    // detect base case
-                return pageToCheck; // solution other base case
+            if( comparison == 0){    // detect base case
+		return pageToCheck; // solution other base case
             // recursive cases
+	    }
             else
                 if( comparison < 0)
                     // findMe's spot precedes pageToCheck
